@@ -1,0 +1,73 @@
+<%- include("../partials/header.ejs") %>
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-lg-6">
+        <div class="card shadow border-0">          
+          <div class="card-body">
+            <h1 class="text-center">Create Campground</h1>
+            <p>
+              <small class="text-muted">Fields marked * are required.</small>
+            </p>
+            <form action="/campgrounds" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="">Name*</label>
+                <input class="form-control" type="text" name="campground[name]" placeholder="Example: Dessert and More" required>
+                <div class="invalid-feedback">
+                  Please provide a campground name.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Price/Night*</label>
+                <input class="form-control" type="number" name="campground[price]" placeholder="Example: 20" required>
+                <div class="invalid-feedback">
+                  Please provide a price.
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="image">Campground Image*</label>
+                  <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+                  <div class="invalid-feedback">
+                    Please provide a Image.
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="description">Description*</label>
+                <input class="form-control" type="text" name="campground[description]" placeholder="Example: 'It is like a heaven'">
+                <div class="invalid-feedback">
+                  Please provide a description of campground.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Phone Number*</label>
+                <input type="text" class="form-control" name="campground[contact]" placeholder="Example: 123-456-7891" required>
+                <div class="invalid-feedback">
+                  Please provide a phone number.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="booking">Booking Date*</label>
+                 <input class="form-control" type="text" name="campground[booking]" placeholder="booking-start date" required>
+                <div class="invalid-feedback">
+                  Please provide a Booking Date.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Amenities</label>
+                <input type="text" class="form-control" name="campground[benifits]" placeholder="Example: boating, fishing, wifi">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Submit</button>
+              <a class="btn btn-link text-center" href="/campgrounds">Go Back</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<%- include("../partials/footer.ejs") %>
+

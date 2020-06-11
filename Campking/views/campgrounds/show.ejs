@@ -1,0 +1,102 @@
+<%- include("../partials/header.ejs") %>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3 d-none d-lg-block">
+            <p class="lead text-capitalize text-center"><strong><%= campground.name %></strong></p>
+            <div class="card shadow-sm">
+                <div class="card-header"><span class="mr-1"><i class="fi-xnsuxl-calendar-solid"></i></span>Booking Window</div>
+                <div class="card-body"><%= campground.booking %></div>
+            </div>
+            <div class="card shadow-sm mt-3">
+                <div class="card-header"><span class="mr-1"><i class="fi-cwluxl-smiley-happy-wide"></i></span>Benifits</div>
+                <div class="card-body text-capitalize"><%= campground.benifits %></div>
+            </div>
+            <div class="card shadow-sm mt-3">
+                <div class="card-header"><span class="mr-1"><i class="fi-xnsuxl-whatsapp"></i></span>Contact</div>
+                <div class="card-body"><%= campground.contact %></div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-12">
+            <div class="card">
+               <img class="card-img-top" src="<%= campground.image %>">
+                <figure class="card-body">
+                    <div>
+                       
+                       
+                       <div class="float-right">
+                           <h4>$<%= campground.price %>/night</h4>
+                       </div>
+                           <h4><a href="#" class="card-title"><%= campground.name %></a></h4>
+                       <p><%= campground.description %></p>
+                       <div class="d-block d-md-none d-lg-none d-xl-none">
+                           <hr>
+                           <p><span class="h5 text-muted"><i class="fi-xnsuxl-calendar-solid mr-1 my-1"></i>Booking window: </span><span class="h-4 text-capitalize text-primary"><%=campground.booking%></span></p>
+                           <p><span class="h5 text-muted"><i class="fi-cwluxl-smiley-happy-wide mr-1 my-1"></i>Benifits: </span><span class="h-4 text-capitalize text-primary"><%=campground.benifits%></span></p>
+                           <p><span class="h5 text-muted"><i class="fi-xnsuxl-whatsapp mr-1 my-1"></i>Contact: </span><span class="h-4 text-capitalize text-primary"><%=campground.contact%></span></p>
+                       </div>
+                       <hr>
+                       
+                       <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                           <div class="dropdown float-right">
+                             <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <img src="https://img.icons8.com/flat_round/30/000000/settings--v1.png"/> Settings
+                             </button>
+                             <div class="dropdown-menu m-0" aria-labelledby="dropdownMenuButton">
+                                 <li><a class="btn text-dark btn-lg" href="/campgrounds/<%= campground._id %>/edit"><img class="mr-2" src="https://img.icons8.com/material-sharp/24/000000/edit.png"/>Edit</a></li>
+                                 <form id="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                                    <button class="btn text-dark btn-lg"><img class="mr-2" src="https://img.icons8.com/material/24/000000/delete-forever--v1.png"/>Delete</button>
+                                 </form>
+                             </div>
+                           </div>
+                       <% } %> 
+                       <p>
+                           <em>Submitted By: <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a> on <%= moment(campground.createdAt).format('LL') %></em>
+                       </p>
+                   </div>
+                </figure>    
+            </div>
+            <span>
+                
+            </span>
+            <div class="card card-body bg-light mt-4">
+                <div class="text-right">
+                    <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add a new comment</a>
+                </div>
+                <hr>
+                <% campground.comments.forEach(function(comment){ %>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <strong><img src="https://img.icons8.com/bubbles/30/000000/user.png"/><%= comment.author.username %></strong>
+                            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+                                <div class="dropdown float-left">
+                                  <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="https://img.icons8.com/flat_round/30/000000/settings--v1.png"/>
+                                  </button>
+                                  <div class="dropdown-menu m-0" aria-labelledby="dropdownMenuButton">
+                                      <li><a class="btn text-dark btn-lg" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit"><img class="mr-2" src="https://img.icons8.com/material-sharp/24/000000/edit.png"/>Edit</a></li>
+                                      <form id="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                          <button class="btn text-dark btn-lg mr-2">
+                                              <img class="mr-2" src="https://img.icons8.com/material/24/000000/delete-forever--v1.png"/>Delete
+                                          </button>
+                                          
+                                          
+                                      </form>
+                                  </div>
+                                </div>
+
+                             <% } %>
+                             <span class="pull-right mt-2"><%= moment(comment.createdAt).fromNow() %></span>
+                             <p class="ml-4"><%= comment.text %></p>
+                             <hr>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("../partials/footer.ejs") %>

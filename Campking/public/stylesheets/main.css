@@ -1,0 +1,179 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&display=swap');
+
+
+.caption-full{
+    padding: 9px;
+}
+
+#delete-form{
+    display: inline;
+}
+
+
+.jumbotron{
+    margin: 30px auto;
+}
+
+
+
+#login{
+    width: 350px;
+    height: 500px;
+    box-shadow: 2px 2px 5px;
+    text-align: center;
+    margin-top: 5%;
+    border-radius: 20px;
+    color: #4C4C4C;
+    background: #f7fcfe;
+    
+}
+
+
+
+#login1{
+    width: 350px;
+    height: 600px;
+    box-shadow: 2px 2px 5px;
+    text-align: center;
+    margin-top: 3%;
+    border-radius: 20px;
+    color: #4C4C4C;
+    background: #f7fcfe;
+    
+}
+
+
+.container .text{
+    margin-bottom:35px;
+}
+
+.field{
+    height: 50px;
+    width: 100%;
+}
+
+.field input{
+
+    height: 70%;
+    width: 70%;
+    border-radius: 10px;
+    margin-left: 4px;
+    outline: none;
+    padding-left:5px;
+    
+}
+
+.field-1 input{
+
+    height: 70%;
+    width: 70%;
+    border-radius: 10px;
+    margin-left: 2px;
+    outline: none;
+    padding-left:5px;
+    
+}
+
+.field input text{
+    margin-left: 2px;
+}    
+
+.up{
+    margin-top:10px;
+    height: 50px;
+}
+
+.sign{
+    margin-top:5px;
+    height: 70px;
+}
+
+div .alert{
+    margin-top: 5px;
+}
+
+
+
+/*@media (min-width: 768px) {*/
+  
+#campall img.card-img-top{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+  
+/*}*/
+
+/*.img.img-responsive{*/
+/*    background-size: cover;*/
+/*    background-position: center center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-attachment: fixed;*/
+/*}*/
+
+
+@media (min-width: 770px){
+    img.card-img-top{
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+}
+
+
+
+img.card-img-top-1{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+img.card-img-top-2{
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+#map{
+    height: 400px;
+    width: 100%;
+}
+
+/*body {*/
+/*     margin: 0;*/
+/*     padding: 0;*/
+/*     text-align: center;*/
+/*}*/
+
+
+.jumbotron {
+  background-image: url("https://images.unsplash.com/photo-1590206953461-5ca007114d9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-size: cover;
+  color: #F0F8FF;
+  text-align: center;
+}
+
+body{
+    background: #F0F8FF;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 600;
+}
+
+input.btn.btn-primary{
+    border-radius: 20px;
+    width: 100px;
+}

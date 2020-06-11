@@ -1,0 +1,45 @@
+<%- include("../partials/header.ejs") %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class=" col-lg-3">
+            <div class="card shadow-sm d-md-block">
+                <img class="card-img-top-2" src="<%= user.avatar %>" alt="User Profile Image">
+                <div class="card-body">
+                    <h5 class="card-title text-capitalize"><%= user.username %></h5>
+                    <h6 class="card-subtitle text-muted">
+                        <%= campgrounds.length %> Campgrounds
+                    </h6>
+                </div>
+            </div>
+            <div class="car shadow-sm mt-3 mb-3">
+                <div class="card-header text-capitalize">
+                    <img src="https://img.icons8.com/bubbles/30/000000/user.png"/><%= user.username %>'s Profile
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><Strong><img class="mr-1" src="https://img.icons8.com/nolan/25/email.png"/>Email: </Strong><a href=""><%= user.email %></a></li>
+                    <li class="list-group-item"><strong>Joined on: </strong> <%= moment(user.createdAt).format('LL') %></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="container tex-center">
+                <h1 class="text-center">Campgrounds</h1>
+                <div class="row">
+                <% campgrounds.forEach(function(campground){ %>
+                        <div class="col-lg-6">
+                            <div class="card shadow-sm mt-3">
+                                <a href="/campgrounds/<%= campground.id %>"><img class="card-img-top-1" src="<%= campground.image %>"></a>
+                                <div class="card-body">
+                                    <a href="/campgrounds/<%= campground.id %>"><h5 class="card-title text-capitalize"><%= campground.name %></h5></a>
+                                </div>
+                            </div>
+                        </div>
+                <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>

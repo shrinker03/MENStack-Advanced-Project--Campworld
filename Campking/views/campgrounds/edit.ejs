@@ -1,0 +1,72 @@
+<%- include("../partials/header.ejs") %>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-12 col-lg-6">
+        <div class="card shadow border-0">
+          <div class="card-body">
+            <h1 class="text-center">Edit
+                <%= campground.name %>
+            </h1>
+            <p>
+              <small class="text-muted">Fields marked * are required.</small>
+            </p>
+            <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                <label>Name*</label>
+                <input type="text" class="form-control" name="campground[name]" value="<%= campground.name %>" required>
+                <div class="invalid-feedback">
+                  Please provide a campground name.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Price/Night*</label>
+                <input type="number" class="form-control" name="campground[price]" value="<%= campground.price %>" required>
+                <div class="invalid-feedback">
+                  Please provide a campground price.
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="image">Campground Image*</label>
+                  <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
+                  <div class="invalid-feedback">
+                    Please provide a Image.
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="description">Description*</label>
+                <input class="form-control" type="text" name="campground[description]" value="<%= campground.description %>" required>
+                <div class="invalid-feedback">
+                  Please provide a description of campground.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Phone Number*</label>
+                <input type="text" class="form-control" name="campground[contact]" value="<%= campground.contact %>" required>
+                <div class="invalid-feedback">
+                  Please provide a phone number.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="booking">Booking Date*</label>
+                 <input class="form-control" type="text" name="campground[booking]" value="<%= campground.booking %>" required>
+                <div class="invalid-feedback">
+                  Please provide a Booking Date.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="">Amenities</label>
+                <input type="text" class="form-control" name="campground[benifits]" value="<%= campground.benifits %>">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+            <a class="btn btn-link btn-block" href="/campgrounds/<%= campground._id %>">Go Back</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include("../partials/footer.ejs") %>
+

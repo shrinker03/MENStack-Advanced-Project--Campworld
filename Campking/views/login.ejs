@@ -1,0 +1,26 @@
+<%- include("./partials/header.ejs") %>
+
+<div id="login"  class="container">
+    <img src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-male.png"/>
+    <h1 class="text">Login</h1>
+    <form action="/login" method="POST">
+        <div class="field">
+            <span class="fa fa-user"></span>
+            <input type="text" name="username" placeholder="username" required>
+        </div>
+        <div class="field">
+            <span class="fa fa-lock"></span>
+            <input type="password" name="password" placeholder="password" required>
+        </div>
+        <div>
+            <input class="btn btn-primary" type="submit" value="Login">
+        </div>
+        <div class="up">Not a member?
+            <a href="/register">Sign up</a>
+        </div>
+    </form>
+</div>
+
+
+
+<%- include("./partials/footer.ejs") %>
