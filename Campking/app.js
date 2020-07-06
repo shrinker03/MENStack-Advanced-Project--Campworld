@@ -5,7 +5,6 @@ var mongoose = require("mongoose");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
-// var seedDB = require("./seeds");
 var User = require("./models/user");
 var flash = require("connect-flash");
 const expressSanitizer = require('express-sanitizer');
